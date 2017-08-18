@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @AutoConfigureAfter({ DataSourceConfig.class })
-@MapperScan(basePackages = {"conan.weiax.*.dao"})
+@MapperScan(basePackages = {"conan.weiax.*.dao","conan.weiax.dao"})
 public class MybatisConfig {
 
 	@Bean

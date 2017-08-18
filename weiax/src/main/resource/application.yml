@@ -1,5 +1,5 @@
-server.port: 8082
-debug: true
+server.port: 8081
+debug: false
 
 spring:
   profiles:
