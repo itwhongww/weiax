@@ -1,9 +1,9 @@
-server.port: 8081
+server.port: 8082
 debug: false
 
 spring:
   profiles:
-    active: dev
+    active: pro
   redis:
     database: 0
     port: 6379
