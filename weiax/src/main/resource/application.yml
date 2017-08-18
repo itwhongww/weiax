@@ -1,0 +1,130 @@
+server.port: 8082
+debug: true
+
+spring:
+  profiles:
+    active: dev
+  redis:
+    database: 0
+    port: 6379
+    timeout: 0
+    
+    pool:
+      max-active: 8
+      max-wait: -1
+      max_idle: 8
+      min-idle: 0
+  http:
+    multipart:
+      file-size-threshold: 0
+      max-file-size: 50Mb
+      max-request-size: 50Mb
+      enabled: true
+
+datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  write:
+    driver-class-name: com.mysql.jdbc.Driver    
+    
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvicableIdleTimeMillis: 60000
+    validationQuery: SELECT 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  read:
+    driver-class-name: com.mysql.jdbc.Driver
+    
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvicableIdleTimeMillis: 60000
+    validationQuery: SELECT 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+---
+#生产环境
+spring:
+  profiles: pro
+  redis:
+    host: r-2ze661307acd4934.redis.rds.aliyuncs.com
+    password: Hong198954
+  data:
+    mongodb.uri: mongodb://192.168.43.55:27017/test
+datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  write:
+    url: jdbc:mysql://rm-uf6rez1n71o63w0fno.mysql.rds.aliyuncs.com:3306/wax?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Hong198954
+  read:
+    url: jdbc:mysql://rm-uf6rez1n71o63w0fno.mysql.rds.aliyuncs.com:3306/wax?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Hong198954
+logging:
+  file: /home/weiax/logs/weiax.${server.port}.log
+  level.conan.weiax: INFO
+      
+---
+#测试环境
+spring:
+  profiles: test
+  redis:
+    host: 192.168.174.137
+  data:
+    mongodb.uri: mongodb://192.168.174.137:27017/test
+datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  write:
+    url: jdbc:mysql://192.168.174.137:3306/wax?useUnicode=true&characterEncoding=utf-8
+    username: hongww
+    password: 198954
+  read:
+    url: jdbc:mysql://192.168.174.137:3306/wax?useUnicode=true&characterEncoding=utf-8
+    username: hongww
+    password: 198954
+logging:
+  file: /home/weiax/logs/weiax.${server.port}.log
+  level.conan.weiax: DEBUG
+      
+---
+#开发环境
+spring:
+  profiles: dev
+  redis:
+    host: localhost
+    password: ~
+  data:
+    mongodb.uri: mongodb://localhost:27017/test
+datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  write:
+    url: jdbc:mysql://localhost:3306/canon?useUnicode=true&characterEncoding=utf-8
+    username: hongww
+    password: 198954
+  read:
+    url: jdbc:mysql://localhost:3306/canon?useUnicode=true&characterEncoding=utf-8
+    username: hongww
+    password: 198954
+logging:
+  file: F:/weiax.${server.port}.log
+  level.conan.weiax: DEBUG
+  
