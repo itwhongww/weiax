@@ -1,6 +1,6 @@
 package conan.weiax.config.vo;
 
-public class ErrorInfo<T> {
+public class ReturnInfo<T> {
 
 	public static final Integer OK = 0;
 	public static final Integer ERROR = -100;
