@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -17,6 +18,7 @@ public interface MenuMapper {
 	List<JSONObject> findMenus();
 
 	@Insert("INSERT INTO menu(menuName,content,imgPath) VALUES(#{menuName},#{content},#{imgPath})")
+	@Options(useGeneratedKeys=true, keyProperty="menuId")
 	int insertMenu(JSONObject json);
 
 	@Update("UPDATE menu SET menuName=#{menuName},content=#{content},imgPath=#{imgPath} WHERE menuId=#{menuId}")
