@@ -1,0 +1,195 @@
+html .contain,
+body .contain,
+form .contain {
+    width: 80%;
+    height: 100%;
+    margin: 0 10%;
+    border: 1px solid #000;
+}
+
+html .contain .header,
+body .contain .header,
+form .contain .header {
+    width: 100%;
+    height: 20%;
+    border: 1px solid #000;
+}
+html .contain .header h1,
+body .contain .header h1,
+form .contain .header h1 {
+    font-size: 48px;
+    color: #FF6600;
+    text-align: center;
+    margin-top: 6%;
+}
+html .contain .header h5,
+body .contain .header h5,
+form .contain .header h5 {
+    text-align: right;
+    margin-top: 1%;
+    margin-right: 3%
+}
+html .contain .main,
+body .contain .main,
+form .contain .main {
+    width: 100%;
+    height: 60%;
+    border: 1px solid #000;
+}
+
+html .contain .footer,
+body .contain .footer,
+form .contain .footer {
+    width: 100%;
+    height: 20%;
+    border: 1px solid #000;
+}
+
+html .contain .main .mainBar,
+body .contain .main .mainBar,
+form .contain .main .mainBar {
+    width: 20%;
+    height: 100%;
+    float: left;
+    border: 1px solid #000;
+}
+html .contain .main .mainBar table,
+body .contain .main .mainBar table,
+form .contain .main .mainBar table {
+    margin:10% auto;
+}
+html .contain .main .mainContent,
+body .contain .main .mainContent,
+form .contain .main .mainContent {
+    width: 79%;
+    height: 100%;
+    float: right;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentImage,
+body .contain .main .mainContent .contentImage,
+form .contain .main .mainContent .contentImage {
+    width: 40%;
+    height: 100%;
+    float: left;
+    border: 1px solid #000;
+}
+
+html .contain .main .mainContent .contentImage .bigImage,
+body .contain .main .mainContent .contentImage .bigImage,
+form .contain .main .mainContent .contentImage .bigImage {
+    width: 80%;
+    height: 60%;
+    margin: 8% 10%;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentImage .bigImage #imageBigImg,
+body .contain .main .mainContent .contentImage .bigImage #imageBigImg,
+form .contain .main .mainContent .contentImage .bigImage #imageBigImg {
+    width: 100%;
+    height: 100%;
+}
+html .contain .main .mainContent .contentImage .thumbnail,
+body .contain .main .mainContent .contentImage .thumbnail,
+form .contain .main .mainContent .contentImage .thumbnail {
+    width: 100%;
+    height: 25%;
+    margin: 5% 0%;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentImage .thumbnail .thumbnailImg,
+body .contain .main .mainContent .contentImage .thumbnail .thumbnailImg,
+form .contain .main .mainContent .contentImage .thumbnail .thumbnailImg {
+    width: 26%;
+    height: 70%;
+    margin: 5% 0% 5% 5%;
+    float: left;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentImage .thumbnail .thumbnailLeft,
+body .contain .main .mainContent .contentImage .thumbnail .thumbnailLeft,
+form .contain .main .mainContent .contentImage .thumbnail .thumbnailLeft {
+    width: 1%;
+    height: 15.5%;
+    float: left;
+    position: absolute;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentImage .thumbnail .thumbnailRight,
+body .contain .main .mainContent .contentImage .thumbnail .thumbnailRight,
+form .contain .main .mainContent .contentImage .thumbnail .thumbnailRight {
+    width: 3.5%;
+    height: 100%;
+    float: right;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentModule,
+body .contain .main .mainContent .contentModule,
+form .contain .main .mainContent .contentModule {
+    width: 58%;
+    height: 100%;
+    float: right;
+    border: 1px solid #000;
+}
+
+html .contain .main .mainContent .contentModule .title,
+body .contain .main .mainContent .contentModule .title,
+form .contain .main .mainContent .contentModule .title {
+    width: 100%;
+    height: 20%;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentModule .title h3,
+body .contain .main .mainContent .contentModule .title h3,
+form .contain .main .mainContent .contentModule .title h3 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FF6600;
+    line-height: 90px;
+}
+html .contain .main .mainContent .contentModule .content,
+body .contain .main .mainContent .contentModule .content,
+form .contain .main .mainContent .contentModule .content {
+    width: 100%;
+    height: 79%;
+    border: 1px solid #000;
+}
+html .contain .main .mainContent .contentModule .content h4,
+body .contain .main .mainContent .contentModule .content h4,
+form .contain .main .mainContent .contentModule .content h4 {
+    font-size: 16px;
+    color: #FF6600;
+    text-indent: 20px;
+    line-height: 30px;
+}
+.menuName {
+    font-size: 16px;
+    color: #FF6600;
+}
+
+html .masking,
+body .masking,
+form .masking {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-top: -46%;
+    margin-left: 0%;
+    filter:alpha(Opacity=80);
+    -moz-opacity:0.5;
+    opacity: 0.5;
+    background-color: #EEE;
+    border: 1px solid #000;
+}
+html .dialog,
+body .dialog,
+form .dialog {
+    width: 60%;
+    height: 60%;
+    margin-top: -37%;
+    margin-left: 20%;
+    position: absolute;
+    background-color: #DDD;
+    border: 1px solid #000;
+}

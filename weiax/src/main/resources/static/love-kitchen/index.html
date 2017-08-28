@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>爱心厨房</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+        <script type="text/javascript" charset="utf-8" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="node_modules/swiper/dist/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="node_modules/seajs/dist/sea.js"></script>
+        <script type="text/javascript" charset="utf-8" src="node_modules/layer/layer.js"></script>
+         <script type="text/javascript" charset="utf-8" src="node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="node_modules/bootstrap-table/bootstrap-table.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="node_modules/swiper/dist/css/swiper.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/common/base.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/newMenu.css"/>
+    </head>
+    <body>
+        <div class="contain">
+            <div class="header">
+                <h1>爱心厨房</h1>
+                <h5 id="newMenu">新增</h5>
+            </div>
+            <div class="main">
+                <div class="mainBar">
+                    <table id="tableMain" class="table">
+                    </table>
+                </div>
+                <div class="mainContent">
+                    <div class="contentImage">
+                        <div class="bigImage">
+                            <image id='imageBigImg' src=""/>
+                        </div>
+                        <div class="thumbnail">
+                        </div>
+                    </div>
+                    <div class="contentModule">
+                        <div class="title"><h3></h3></div>
+                        <div class="content"><h4></h4></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+
+            </div>
+        </div>
+        <div class="masking">
+
+        </div>
+        <div class="dialog">
+
+        </div>
+        <script type="text/javascript">
+            seajs.config({
+                base : "./js"
+            })
+            seajs.use(["index"],function(index){
+                index.init();
+            });
+            seajs.use(["newMenu"],function(newMenu){
+                //newMenu.init();
+            });
+        </script>
+    </body>
