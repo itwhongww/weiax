@@ -5,7 +5,7 @@ dbFilePath: /images/
 
 spring:
   profiles:
-    active: pro
+    active: dev
   redis:
     database: 0
     port: 6379
@@ -127,6 +127,6 @@ datasource:
     username: hongww
     password: 198954
 logging:
-  file: F:/weiax.${server.port}.log
+  file: /home/hongww/logs/weiax.${server.port}.log
   level.conan.weiax: DEBUG
   
