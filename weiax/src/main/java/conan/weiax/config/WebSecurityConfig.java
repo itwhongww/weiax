@@ -28,8 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/weiax/login.html")
-				.permitAll().antMatchers("/menu/**","/weiax/**","/weiaxC/**").hasAnyRole("ADMIN")
-				.anyRequest()
+//				.permitAll().antMatchers("/menu/**","/weiax/**","/weiaxC/**").hasAnyRole("ADMIN")
+//				.anyRequest()
 				// .antMatchers("/user/**").hasAnyRole("USER,ADMIN").anyRequest()
 				.authenticated().and().formLogin().loginPage("/weiax/login.html")
 				// .defaultSuccessUrl("/hello")//登录成功后默认跳转到"/hello"
