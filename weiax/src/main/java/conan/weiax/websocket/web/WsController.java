@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,8 +33,9 @@ public class WsController {
     private final String FLAG_CONTENT = "FLAG_CONTENT";
     private final String FLAG_FRESHUSER = "FLAG_FRESHUSER";
     private final String WAX_WECHAT_ONLINE = "WAX_WECHAT_ONLINE";
-    @Autowired
+
 //    private StringRedisTemplate stringRedisTemplate;
+    @Resource
     private RedissonClient redisson;
     @MessageMapping("/welcome")
     @SendTo("/topic/getResponse")
