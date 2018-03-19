@@ -1,10 +1,12 @@
-package conan.weiax.websocket;
+package conan.weiax.websocket.web;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import conan.weiax.config.vo.ReturnInfo;
 import conan.weiax.exception.GlobalException;
 import conan.weiax.util.OkHttp;
+import org.redisson.api.RMap;
+import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,8 @@ public class WsController {
     private final String FLAG_FRESHUSER = "FLAG_FRESHUSER";
     private final String WAX_WECHAT_ONLINE = "WAX_WECHAT_ONLINE";
     @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+//    private StringRedisTemplate stringRedisTemplate;
+    private RedissonClient redisson;
     @MessageMapping("/welcome")
     @SendTo("/topic/getResponse")
     public ReturnInfo<JSONObject> say(@RequestBody JSONObject json) {
@@ -55,7 +58,9 @@ public class WsController {
         ReturnInfo<JSONObject> info = new ReturnInfo<>();
         try {
             String myself = OkHttp.getInstance().doGet("http://127.0.0.1/wax_measure/tourist");
-            boolean flag = stringRedisTemplate.opsForHash().putIfAbsent(WAX_WECHAT_ONLINE,myself,"1");
+//            boolean flag = stringRedisTemplate.opsForHash().putIfAbsent(WAX_WECHAT_ONLINE,myself,"1");
+            RMap<String, String> map = redisson.getMap(WAX_WECHAT_ONLINE);
+            boolean flag = map.fastPutIfAbsent(myself,"1");
             if(!flag){
                 throw new GlobalException("网络异常，请稍后重试");
             }
@@ -71,10 +76,13 @@ public class WsController {
         return info;
     }
     private void cancelUser(String name){
-        stringRedisTemplate.opsForHash().delete(WAX_WECHAT_ONLINE,name);
+        RMap<String, String> map = redisson.getMap(WAX_WECHAT_ONLINE);
+        map.remove(name);
+//        stringRedisTemplate.opsForHash().delete(WAX_WECHAT_ONLINE,name);
     }
     private List freshUser(){
-        Map map = stringRedisTemplate.opsForHash().entries(WAX_WECHAT_ONLINE);
+        RMap<String, String> map = redisson.getMap(WAX_WECHAT_ONLINE);
+//        Map map = stringRedisTemplate.opsForHash().entries(WAX_WECHAT_ONLINE);
         JSONObject json = JSON.parseObject(JSON.toJSONString(map));
         List returnList = new ArrayList();
         returnList.addAll(json.keySet());
