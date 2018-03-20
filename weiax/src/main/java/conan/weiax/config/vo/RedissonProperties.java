@@ -1,10 +1,13 @@
 package conan.weiax.config.vo;
 
+import conan.weiax.websocket.web.WsController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "redisson")
+@ConfigurationProperties(prefix = "spring.redisson")
 public class RedissonProperties {
-
+    private static Logger log = LoggerFactory.getLogger(RedissonProperties.class);
     private int timeout = 3000;
 
     private String address;
@@ -72,10 +75,12 @@ public class RedissonProperties {
     }
 
     public String getAddress() {
+        log.debug("===============getaddress"+address);
         return address;
     }
 
     public void setAddress(String address) {
+        log.debug("===============setaddress"+address);
         this.address = address;
     }
 

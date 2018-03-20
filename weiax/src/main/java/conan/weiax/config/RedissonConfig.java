@@ -24,32 +24,32 @@ public class RedissonConfig {
     @Autowired
     private RedissonProperties redssionProperties;
 
-    /**
-     * 哨兵模式自动装配
-     * @return
-     */
-    @Bean
-    @ConditionalOnProperty(name="redisson.master-name")
-    RedissonClient redissonSentinel() {
-        Config config = new Config();
-        SentinelServersConfig serverConfig = config.useSentinelServers().addSentinelAddress(redssionProperties.getSentinelAddresses())
-                .setMasterName(redssionProperties.getMasterName())
-                .setTimeout(redssionProperties.getTimeout())
-                .setMasterConnectionPoolSize(redssionProperties.getMasterConnectionPoolSize())
-                .setSlaveConnectionPoolSize(redssionProperties.getSlaveConnectionPoolSize());
-
-        if(!StringUtils.isEmpty(redssionProperties.getPassword())) {
-            serverConfig.setPassword(redssionProperties.getPassword());
-        }
-        return Redisson.create(config);
-    }
+//    /**
+//     * 哨兵模式自动装配
+//     * @return
+//     */
+//    @Bean
+//    @ConditionalOnProperty(name="redisson.master-name")
+//    RedissonClient redissonSentinel() {
+//        Config config = new Config();
+//        SentinelServersConfig serverConfig = config.useSentinelServers().addSentinelAddress(redssionProperties.getSentinelAddresses())
+//                .setMasterName(redssionProperties.getMasterName())
+//                .setTimeout(redssionProperties.getTimeout())
+//                .setMasterConnectionPoolSize(redssionProperties.getMasterConnectionPoolSize())
+//                .setSlaveConnectionPoolSize(redssionProperties.getSlaveConnectionPoolSize());
+//
+//        if(!StringUtils.isEmpty(redssionProperties.getPassword())) {
+//            serverConfig.setPassword(redssionProperties.getPassword());
+//        }
+//        return Redisson.create(config);
+//    }
 
     /**
      * 单机模式自动装配
      * @return
      */
     @Bean
-    @ConditionalOnProperty(name="redisson.address")
+    @ConditionalOnProperty(name="spring.redisson.address")
     RedissonClient redissonSingle() {
         Config config = new Config();
         SingleServerConfig serverConfig = config.useSingleServer()
