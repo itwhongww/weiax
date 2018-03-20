@@ -1,4 +1,4 @@
-package conan.weiax.websocket.web;
+package conan.weiax.websocket;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -78,7 +78,9 @@ public class WsController {
         map.remove(name);
 //        stringRedisTemplate.opsForHash().delete(WAX_WECHAT_ONLINE,name);
     }
-    private List freshUser(){
+    @RequestMapping(value = "/wechat/freshUser", method = RequestMethod.GET)
+    @ResponseBody
+    public List freshUser(){
         RMap<String, String> map = redisson.getMap(WAX_WECHAT_ONLINE);
 //        Map map = stringRedisTemplate.opsForHash().entries(WAX_WECHAT_ONLINE);
         JSONObject json = JSON.parseObject(JSON.toJSONString(map));
