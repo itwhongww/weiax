@@ -37,7 +37,6 @@ public class WsController {
     @MessageMapping("/welcome")
     @SendTo("/topic/getResponse")
     public ReturnInfo<JSONObject> say(@RequestBody JSONObject json) {
-        System.out.println("==================json"+json);
         ReturnInfo<JSONObject> info = new ReturnInfo<>();
         String name = json.getString("name");
         String flag = json.getString("flag");
@@ -83,6 +82,7 @@ public class WsController {
         RMap<String, String> map = redisson.getMap(WAX_WECHAT_ONLINE);
 //        Map map = stringRedisTemplate.opsForHash().entries(WAX_WECHAT_ONLINE);
         JSONObject json = JSON.parseObject(JSON.toJSONString(map));
+        log.info("================json:"+json);
         List returnList = new ArrayList();
         returnList.addAll(json.keySet());
         Collections.sort(returnList);
