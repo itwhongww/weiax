@@ -67,7 +67,7 @@ datasource:
 spring:
   profiles: pro
   redisson:
-      address: redis://127.0.0.1:6379
+      address: redis://localhost:6379
       password:
 #  data:
 #    mongodb.uri: mongodb://192.168.43.55:27017/test
@@ -78,7 +78,7 @@ datasource:
     username: hongww
     password: 198954
   read:
-    url: jdbc:mysql://localhost:3306/wax?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/weiax?useUnicode=true&characterEncoding=utf-8
     username: hongww
     password: 198954
 logging:
